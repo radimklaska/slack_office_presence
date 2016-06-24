@@ -38,15 +38,15 @@ if ($mac_old != $mac_new) {
 	$disconneted = array_diff($mac_old, $mac_new);
 	
 	foreach ($connected as $key => $tmp) {
-        	$connected[$key] = (isset($names[$tmp]) ? $names[$tmp] . ' (' . $tmp . ')' : $tmp);
-	}
+                $connected[$key] = (isset($names[$tmp]) ? $names[$tmp] . ' (in-' . $tmp . ')' : $tmp);
+        }
 
         foreach ($disconneted as $key => $tmp) {
-                $disconneted[$key] = (isset($names[$tmp]) ? $names[$tmp] : $tmp);
+                $disconneted[$key] = (isset($names[$tmp]) ? $names[$tmp] . ' (out-' . $tmp . ')' : $tmp);
         }
 
         foreach ($mac_new as $key => $tmp) {
-                $mac_new[$key] = (isset($names[$tmp]) ? $names[$tmp] : $tmp);
+                $mac_new[$key] = (isset($names[$tmp]) ? $names[$tmp] . ' (now-' . $tmp . ')' : $tmp);
         }
 
 	$message = "======================== " . date('H:i') . " ========================\n";
